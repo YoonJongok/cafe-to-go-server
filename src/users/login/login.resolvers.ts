@@ -15,7 +15,7 @@ const resolvers: Resolvers = {
         const isAuthenticated = await bcrypt.compare(password, user.password);
 
         if (isAuthenticated) {
-          const token = await jwt.sign(
+          const token = jwt.sign(
             { id: user.id },
             process.env.NODE_ENV === "production" ? process.env.SECRET_KEY : SECRET_DEV,
           );
