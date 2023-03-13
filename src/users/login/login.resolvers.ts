@@ -7,9 +7,8 @@ const resolvers: Resolvers = {
   Mutation: {
     login: async (_, { email, password }, { prisma }) => {
       try {
-        const user = await prisma.user.findUnique({
+        const user = await prisma.user.findUniqueOrThrow({
           where: { email },
-          rejectOnNotFound: true,
         });
 
         const isAuthenticated = await bcrypt.compare(password, user.password);

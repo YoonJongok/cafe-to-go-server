@@ -22,7 +22,7 @@ interface MyContext {
 const main = async () => {
   const server = new ApolloServer<MyContext>({
     schema,
-    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    plugins: [{ httpServer }],
   });
 
   await server.start();
