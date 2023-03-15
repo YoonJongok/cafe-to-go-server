@@ -4,12 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
+    "dev": "cross-env NODE_ENV=development tsx watch src/server.ts",
     "db:push": "npx prisma db push",
     "studio": "npx prisma studio",
     "lint": "eslint src/**/*.ts",
     "format": "eslint src/**/*.ts --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=production node build/server"
   },
   "keywords": [],
   "author": "",
@@ -37,9 +38,11 @@
     "@graphql-tools/schema": "^9.0.17",
     "@prisma/client": "^4.11.0",
     "@types/bcrypt": "^5.0.0",
+    "aws-sdk": "^2.1334.0",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "graphql": "^16.6.0",
